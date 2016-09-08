@@ -21,6 +21,7 @@ def get_user_password():
 
 
 def get_session(access_token=None, login=None, password=None):
+    session = None
     if access_token:
         try:
             session = vk.Session(
@@ -38,7 +39,7 @@ def get_session(access_token=None, login=None, password=None):
         except vk.exceptions.VkAuthError:
             print('Login or password are incorrect or this login uses 2FA')
 
-    return session or None
+    return session
 
 
 def get_online_friends(session):
